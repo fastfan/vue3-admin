@@ -2,7 +2,7 @@
  * @Author: fastfan
  * @Date: 2025-02-06 22:28:49
  * @LastEditors: fastfan
- * @LastEditTime: 2025-02-09 00:12:39
+ * @LastEditTime: 2025-02-09 00:14:25
  * @Description: your description
  */
 import axios from 'axios';
@@ -65,7 +65,7 @@ const requestInstance = <T = any>(config: AxiosRequestConfig): Promise<T> => {
         service.request<any, AxiosResponse<BaseResponse>>(conf).then((res: AxiosResponse<BaseResponse>) => {
             const data = res.data; // 如果data.code为错误代码返回message信息
             if (data.code != 0) {
-                ElMessage({
+                ElMessages({
                     message: data.message,
                     type: 'error',
                 });
@@ -93,7 +93,7 @@ export function post<T = any, U = any>(config: AxiosRequestConfig, url: string, 
 export function put<T = any, U = any>(config: AxiosRequestConfig, url: string, parms?: U): Promise<T> {
     return requestInstance({ ...config, url, method: 'PUT', params: parms });
 }
-export function del<T = anyss, U = anyss>(config: AxiosRequestConfig, url: string, data: U): Promise<T> {
+export function del<T = any, U = any>(config: AxiosRequestConfig, url: string, data: U): Promise<T> {
     return requestInstance({ ...config, url, method: 'DELETE', data: data });
 }
 
