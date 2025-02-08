@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite --mode development",
     "build": "vite build --mode production",
-    "prepare": "husky install",
     "lint:lint-staged": "lint-staged",
     "lint:eslint": "eslint --cache --max-warnings 0 {src,mock}/**/*.{vue,ts,tsx} --fix",
     "lint:prettier": "prettier --write **/*.{js,json,tsx,css,less,scss,vue,html,md}"
@@ -25,8 +24,6 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.7.1",
-    "@commitlint/config-conventional": "^19.7.1",
     "@eslint/create-config": "0.4.6",
     "@types/node": "^22.13.1",
     "@types/nprogress": "^0.2.3",

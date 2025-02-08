@@ -6,10 +6,11 @@
  * @Description: your description
 -->
 <template>
-  <div>login</div>
+    <div>login</div>
 </template>
 <script lang="ts" setup>
-import { useUserStore } from "@/store/user";
+import { useUserStore } from '@/store/user';
+con;
 const userStore = useUserStore();
 console.log(userStore);
 </script>
