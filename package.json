@@ -8,6 +8,7 @@
     "dev": "vite --mode development",
     "build": "vite build --mode production",
     "prepare": "husky install",
+    "lint:lint-staged": "lint-staged",
     "lint:eslint": "eslint --cache --max-warnings 0 {src,mock}/**/*.{vue,ts,tsx} --fix",
     "lint:prettier": "prettier --write **/*.{js,json,tsx,css,less,scss,vue,html,md}"
   },
