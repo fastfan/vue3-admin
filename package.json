@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite --mode development",
-    "build": "vite build --mode production"
+    "build": "vite build --mode production",
+    "prepare": "husky install",
+    "lint:eslint": "eslint --cache --max-warnings 0 {src,mock}/**/*.{vue,ts,tsx} --fix",
+    "lint:prettier": "prettier --write **/*.{js,json,tsx,css,less,scss,vue,html,md}"
   },
   "author": "",
   "license": "ISC",
@@ -21,14 +24,78 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
+    "@eslint/create-config": "0.4.6",
     "@types/node": "^22.13.1",
     "@types/nprogress": "^0.2.3",
+    "@typescript-eslint/eslint-plugin": "^8.23.0",
+    "@typescript-eslint/parser": "^8.23.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vitejs/plugin-vue-jsx": "^4.1.1",
+    "commitizen": "^4.3.1",
+    "conventional-changelog-cli": "^5.0.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-vue": "^9.32.0",
+    "husky": "^9.1.7",
     "less": "^4.2.2",
-    "sass": "^1.84.0",
+    "lint-staged": "^15.4.3",
+    "postcss-html": "^1.8.0",
+    "postcss-less": "^6.0.0",
+    "prettier": "^3.4.2",
+    "stylelint": "^16.14.1",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-standard": "^37.0.0",
+    "stylelint-config-standard-vue": "^1.0.0",
+    "stylelint-less": "^3.0.1",
+    "stylelint-order": "^6.0.4",
     "typescript": "^5.7.3",
     "vite": "^6.1.0",
     "vue-tsc": "^2.2.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "{!(package)*.json,*.code-snippets,.!(browserslist)*rc}": [
+      "prettier --write--parser json"
+    ],
+    "package.json": [
+      "prettier --write"
+    ],
+    "*.vue": [
+      "eslint --fix",
+      "prettier --write",
+      "stylelint --fix"
+    ],
+    "*.{scss,less,styl,html}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.md": [
+      "prettier --write"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "engines": {
+    "node": "*"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
