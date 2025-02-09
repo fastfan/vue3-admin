@@ -3,7 +3,8 @@ import type { UserConfig, ConfigEnv } from 'vite'
 import { fileURLToPath } from 'url'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
+import { viteMockServe } from 'vite-plugin-mock'
+export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   // 获取当前工作目录
   const root = process.cwd()
   // 获取环境变量
@@ -20,7 +21,12 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       // Vue模板文件编译插件
       vue(),
       // jsx文件编译插件
-      vueJsx()
+      vueJsx(),
+      viteMockServe({
+        // 如果接口为 /mock/xxx 以 mock 开头就会被拦截响应配置的内容
+        mockPath: 'mock', // 数据模拟需要拦截的请求起始 URL
+        enable: command === 'serve' // 只有开发环境才开启mock
+      })
     ],
     // 运行后本地预览的服务器
     server: {

@@ -43,6 +43,7 @@
     "eslint-plugin-vue": "^9.32.0",
     "husky": "8.0.3",
     "lint-staged": "^15.4.3",
+    "mockjs": "^1.1.0",
     "postcss": "^8.4.31",
     "postcss-html": "^1.5.0",
     "prettier": "^3.4.2",
@@ -59,6 +60,7 @@
     "stylelint-scss": "^5.2.1",
     "typescript": "^5.7.3",
     "vite": "^6.1.0",
+    "vite-plugin-mock": "3.0.0",
     "vue-tsc": "^2.2.0"
   },
   "lint-staged": {
