@@ -35,7 +35,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
       // 开发环境预览服务器端口
       port: 9000,
       // 启动后是否自动打开浏览器
-      open: false,
+      open: true,
       // 是否开启CORS跨域
       cors: true,
       // 代理服务器
