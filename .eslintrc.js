@@ -222,17 +222,6 @@ module.exports = {
     ],
     'no-unreachable': 2, // 禁止在 return、throw、continue 和 break 语句之后出现不可达代码
     'no-unsafe-finally': 2, // 禁止在 finally 语句块中出现控制流语句
-    'no-unused-vars': [
-      2,
-      {
-        // 禁止出现未使用过的变量
-        varsIgnorePattern: '.*',
-        args: 'none'
-        // vars: 'all', // 检测所有变量，包括全局环境中的变量。这是默认值。
-        // args: 'after-used', // 不检查最后一个使用的参数之前出现的未使用的位置参数，但是检查最后一个使用的参数之后的所有命名参数和所有位置参数。
-        // argsIgnorePattern: '^_' // 选项指定排除不需要检测：这些参数的名字符合正则匹配。例如，下划线开头的变量。
-      }
-    ],
     'no-useless-call': 2, // 禁止不必要的 .call() 和 .apply()
     'no-useless-computed-key': 2, // 禁止在对象中使用不必要的计算属性
     'no-useless-constructor': 2, // 禁用不必要的构造函数
@@ -312,7 +301,6 @@ module.exports = {
       }
     ],
     'array-bracket-spacing': [2, 'never'], // 强制数组方括号中使用一致的空格，禁止在数组括号内出现空格
-    'vue/multi-word-component-names': 'off',
-    'no-unused-vars': 'warn'
+    'vue/multi-word-component-names': 'off'
   }
 }
