@@ -1,4 +1,7 @@
 @import './flex.css';
+@import './custom.scss'; // 自定义样式文件路径
+@import 'variables'; // 主题变量
+@import 'st-theme-style.scss'; // 主题样式
 
 body {
   height: 100%;
@@ -28,14 +31,6 @@ html {
   box-sizing: inherit;
 }
 
-.no-padding {
-  padding: 0 !important;
-}
-
-.padding-content {
-  padding: 4px 0;
-}
-
 a:focus,
 a:active {
   outline: none;
@@ -51,153 +46,4 @@ a:hover {
 
 div:focus {
   outline: none;
-}
-
-.fr {
-  float: right;
-}
-
-.fl {
-  float: left;
-}
-
-.pr-5 {
-  padding-right: 5px;
-}
-
-.pl-5 {
-  padding-left: 5px;
-}
-
-.block {
-  display: block;
-}
-
-.pointer {
-  cursor: pointer;
-}
-
-.inlineBlock {
-  display: block;
-}
-
-.clearfix {
-  &::after {
-    content: ' ';
-    display: block;
-    height: 0;
-    font-size: 0;
-    visibility: hidden;
-    clear: both;
-  }
-}
-
-.margin-left-12 {
-  margin-left: 12px;
-}
-
-.paddingLeft12 {
-  padding-left: 12px;
-}
-
-.margin-left24 {
-  margin-left: 46px;
-  font-family: STFangsong;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.margin-left524 {
-  margin-left: 234px;
-  font-family: STFangsong;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.text-underline {
-  text-decoration: underline;
-}
-
-.text-indent {
-  text-indent: 2em;
-}
-
-.text-indent4 {
-  text-indent: 4em;
-}
-
-.text-indent3 {
-  text-indent: 3em;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.text-justify {
-  text-align: justify;
-}
-
-.text-lineheight {
-  line-height: 30px;
-  text-align: justify;
-}
-
-.position-right {
-  position: absolute;
-  right: 24px;
-  bottom: -16px;
-  font-family: STFangsong;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.position-relative {
-  position: relative;
-}
-
-.width-height {
-  width: 170px;
-  height: 80px;
-}
-
-.width-height2 {
-  width: 82px;
-  height: 80px;
-}
-
-.width-height3 {
-  width: 82px;
-  height: 50px;
-}
-
-.width-height4 {
-  width: 82px;
-  height: 30px;
-}
-
-.input-width {
-  display: inline-block;
-  width: 250px;
-}
-
-.input-width2 {
-  margin-right: 35px;
-  margin-left: -25px;
-  width: 576px;
-}
-
-.detailStyle {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  z-index: 9999;
-}
-
-.detailTop {
-  position: relative;
-  top: 14px;
-  height: 100%;
 }

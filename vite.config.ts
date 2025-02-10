@@ -4,6 +4,12 @@ import { fileURLToPath } from 'url'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { viteMockServe } from 'vite-plugin-mock'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
+import ElementPlus from 'unplugin-element-plus/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   // 获取当前工作目录
   const root = process.cwd()
@@ -26,6 +32,42 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
         // 如果接口为 /mock/xxx 以 mock 开头就会被拦截响应配置的内容
         mockPath: 'mock', // 数据模拟需要拦截的请求起始 URL
         enable: command === 'serve' // 只有开发环境才开启mock
+      }),
+      // 开启ElementPlus自动引入CSS
+      ElementPlus({}),
+      // 自动导入组件
+      AutoImport({
+        // Auto import functions from Vue, e.g. ref, reactive, toRef...
+        // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
+        imports: ['vue'],
+        // Auto import functions from Element Plus, e.g. ElMessage, ElMessageBox... (with style)
+        // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
+        resolvers: [
+          ElementPlusResolver(),
+          // Auto import icon components
+          // 自动导入图标组件
+          IconsResolver({
+            prefix: 'Icon'
+          })
+        ],
+        dts: fileURLToPath(new URL('./types/auto-imports.d.ts', import.meta.url))
+      }),
+      // 自动注册组件
+      Components({
+        resolvers: [
+          // Auto register Element Plus components
+          // 自动导入 Element Plus 组件
+          ElementPlusResolver(),
+          // Auto register icon components
+          // 自动注册图标组件
+          IconsResolver({
+            enabledCollections: ['ep']
+          })
+        ],
+        dts: fileURLToPath(new URL('./types/components.d.ts', import.meta.url))
+      }),
+      Icons({
+        autoInstall: true
       })
     ],
     // 运行后本地预览的服务器
