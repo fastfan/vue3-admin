@@ -1,9 +1,13 @@
-/* 改变主题色变量 */
-$--color-primary: #3786fd;
-$--table-th-color: #fafafa;
-$--detail-borde-color: #e6e6e6;
-$--detail-background-color: #f7f7f7;
-$--detail-font-color-light: #666;
-$--detail-font-color-heavy: #333;
-$--detail-font-weight: 400;
-$--detail-font-size: 14px;
+:root {
+  // 主色调
+  --dawei-color-main: #5129f2;
+  --dawei-color-main-light-1: #776bff;
+  --dawei-color-main-light-2: #ffe9cd7a;
+  --dawei-backgroud-color: white; // 背景主色调
+  --dawei-color-dark-black: black; // 适配黑色主题的字体色
+  --dawei-color-dark-gray: gray;
+}
+
+body {
+  background-color: var(--dawei-backgroud-color);
+}

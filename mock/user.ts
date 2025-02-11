@@ -21,12 +21,12 @@ export default [
         }
       }
       // 其余的则显示登录成功
-      if (body.username === 'admin') {
+      if (body.username === 'dawei') {
         return {
           code: 0,
           message: '登录成功',
           data: {
-            username: 'admin',
+            username: 'dawei',
             roles: ['admin'],
             accessToken: 'admin'
           }
@@ -39,6 +39,44 @@ export default [
             username: 'common',
             roles: ['common'],
             accessToken: 'common'
+          }
+        }
+      }
+    }
+  },
+  {
+    // 获取用户信息的接口
+    url: '/mock/api/getUserInfo',
+    method: 'post',
+    response: ({ body }) => {
+      if (body.accessToken === 'dawei') {
+        return {
+          code: 0,
+          message: '登录成功',
+          data: {
+            username: 'dawei',
+            roles: ['admin'],
+            accessToken: 'dawei'
+          }
+        }
+      } else if (body.accessToken === 'common') {
+        return {
+          code: 0,
+          message: '登录成功',
+          data: {
+            username: 'common',
+            roles: ['common'],
+            accessToken: 'common'
+          }
+        }
+      } else {
+        return {
+          code: 1,
+          message: 'Token失效',
+          data: {
+            username: '',
+            roles: [],
+            accessToken: ''
           }
         }
       }

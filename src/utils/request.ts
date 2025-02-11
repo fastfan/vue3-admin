@@ -3,13 +3,13 @@ import type { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError, Inte
 import { ElMessage } from 'element-plus'
 import { getMessageInfo } from './status'
 
-interface BaseResponse<T = any> {
+type BaseResponse<T = any> = {
   code: number
   data: T
   message: string
   status?: number | string
 }
-console.log(import.meta)
+// console.log(import.meta)
 const service: AxiosInstance = axios.create({
   // 启用 mock 就请求 mock 路径
   // 不启用 mock 就请求 正常后端路径
@@ -32,11 +32,12 @@ service.interceptors.request.use(
 // axios实例拦截响应
 service.interceptors.response.use(
   (response: AxiosResponse) => {
+    console.log('response', response)
     if (response.status === 200) {
-      return response.data
+      return response
     }
     ElMessage.error(getMessageInfo(response.status))
-    return response.data
+    return response
   },
   (error: any) => {
     const { response } = error
@@ -56,19 +57,20 @@ const requestInstance = <T = any>(config: AxiosRequestConfig): Promise<T> => {
     service
       .request<any, AxiosResponse<BaseResponse>>(conf)
       .then((res: AxiosResponse<BaseResponse>) => {
-        const data = res.data // 如果data.code为错误代码返回message信息
-        if (data.code !== 0) {
+        console.log('res', res)
+        const { code, data, message } = res.data
+        if (code !== 0) {
           ElMessage({
-            message: data.message,
+            message,
             type: 'error'
           })
-          reject(data.message)
+          reject(message as T)
         } else {
           ElMessage({
-            message: data.message,
+            message,
             type: 'success'
           }) // 此处返回data信息 也就是 api 中配置好的 Response类型
-          resolve(data.data as T)
+          resolve(data as T)
         }
       })
       .catch((err) => {

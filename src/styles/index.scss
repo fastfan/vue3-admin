@@ -1,7 +1,6 @@
-@import './flex.css';
-@import './custom.scss'; // 自定义样式文件路径
-@import 'variables'; // 主题变量
-@import 'st-theme-style.scss'; // 主题样式
+@use './custom.scss'; // 自定义样式文件路径
+@use 'variables'; // 主题变量
+@use 'st-theme-style.scss'; // 主题样式
 
 body {
   height: 100%;
