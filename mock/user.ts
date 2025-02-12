@@ -21,12 +21,12 @@ export default [
         }
       }
       // 其余的则显示登录成功
-      if (body.username === 'dawei') {
+      if (body.username === 'admin') {
         return {
           code: 0,
           message: '登录成功',
           data: {
-            username: 'dawei',
+            username: 'admin',
             roles: ['admin'],
             accessToken: 'admin'
           }
@@ -36,7 +36,7 @@ export default [
           code: 0,
           message: '登录成功',
           data: {
-            username: 'common',
+            username: body.username,
             roles: ['common'],
             accessToken: 'common'
           }

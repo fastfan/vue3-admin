@@ -29,6 +29,7 @@
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.7.1",
     "@eslint/create-config": "0.4.6",
+    "@iconify-json/ep": "^1.2.2",
     "@types/node": "^22.13.1",
     "@types/nprogress": "^0.2.3",
     "@typescript-eslint/eslint-plugin": "^8.23.0",

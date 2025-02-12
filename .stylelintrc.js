@@ -79,6 +79,7 @@ module.exports = {
     'selector-id-pattern': null, //指定id选择器的模式
     'custom-property-pattern': null, //为自定义属性指定模式。
     'no-invalid-double-slash-comments': null, //禁止使用双斜杠注释（关闭）
+    // 'property-no-vendor-prefix': ['transform', 'columns'],
     'at-rule-no-unknown': [
       true,
       {

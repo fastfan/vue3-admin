@@ -1,6 +1,8 @@
-@use './custom.scss'; // 自定义样式文件路径
-@use 'variables'; // 主题变量
-@use 'st-theme-style.scss'; // 主题样式
+@use 'variables'; // 存放项目统一规范的变量
+@use './reset.scss'; // 重置浏览器默认样式
+@use './custom.scss'; // 自定义的 css 样式
+@use './theme/index.scss'; // 自定义主题样式
+@use './element-ui.scss'; // 修改 element-ui 样式
 
 body {
   height: 100%;
@@ -22,27 +24,4 @@ html {
 
 #app {
   height: 100%;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-a:focus,
-a:active {
-  outline: none;
-}
-
-a,
-a:focus,
-a:hover {
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-}
-
-div:focus {
-  outline: none;
 }

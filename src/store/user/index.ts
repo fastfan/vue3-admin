@@ -47,7 +47,7 @@ export const useUserStoreHook = defineStore('userInfo', {
     key: 'userInfo', // 存储名称
     storage: sessionStorage, // 存储方式
     // paths: ['accessToken'],  // 旧版本写法，会导致definestore报没有重载的错误，新版写法为pick
-    pick: ['accessToken'] // 需要持久化的状态
+    pick: ['accessToken', 'username'] // 需要持久化的状态
   }
 })
 export function useUserStore() {
